@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class APODViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

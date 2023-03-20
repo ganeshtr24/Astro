@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		531B889429C8BFDA00A70AB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B889329C8BFDA00A70AB9 /* AppDelegate.swift */; };
 		531B889629C8BFDA00A70AB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B889529C8BFDA00A70AB9 /* SceneDelegate.swift */; };
-		531B889829C8BFDA00A70AB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B889729C8BFDA00A70AB9 /* ViewController.swift */; };
+		531B889829C8BFDA00A70AB9 /* APODViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B889729C8BFDA00A70AB9 /* APODViewController.swift */; };
 		531B889B29C8BFDA00A70AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531B889929C8BFDA00A70AB9 /* Main.storyboard */; };
 		531B889D29C8BFDC00A70AB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 531B889C29C8BFDC00A70AB9 /* Assets.xcassets */; };
 		531B88A029C8BFDC00A70AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531B889E29C8BFDC00A70AB9 /* LaunchScreen.storyboard */; };
+		531B88BB29C8C73500A70AB9 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88BA29C8C73500A70AB9 /* APOD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		531B889029C8BFDA00A70AB9 /* Astro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		531B889329C8BFDA00A70AB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		531B889529C8BFDA00A70AB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		531B889729C8BFDA00A70AB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		531B889729C8BFDA00A70AB9 /* APODViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewController.swift; sourceTree = "<group>"; };
 		531B889A29C8BFDA00A70AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		531B889C29C8BFDC00A70AB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		531B889F29C8BFDC00A70AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		531B88A129C8BFDC00A70AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		531B88BA29C8C73500A70AB9 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,64 @@
 		531B889229C8BFDA00A70AB9 /* Astro */ = {
 			isa = PBXGroup;
 			children = (
+				531B88BC29C8C7A700A70AB9 /* Network */,
+				531B88B429C8C60200A70AB9 /* Screens */,
 				531B889329C8BFDA00A70AB9 /* AppDelegate.swift */,
 				531B889529C8BFDA00A70AB9 /* SceneDelegate.swift */,
-				531B889729C8BFDA00A70AB9 /* ViewController.swift */,
 				531B889929C8BFDA00A70AB9 /* Main.storyboard */,
 				531B889C29C8BFDC00A70AB9 /* Assets.xcassets */,
 				531B889E29C8BFDC00A70AB9 /* LaunchScreen.storyboard */,
 				531B88A129C8BFDC00A70AB9 /* Info.plist */,
 			);
 			path = Astro;
+			sourceTree = "<group>";
+		};
+		531B88B429C8C60200A70AB9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				531B88B529C8C61100A70AB9 /* APOD */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		531B88B529C8C61100A70AB9 /* APOD */ = {
+			isa = PBXGroup;
+			children = (
+				531B88B929C8C63F00A70AB9 /* ViewModel */,
+				531B88B629C8C62400A70AB9 /* Model */,
+				531B88B829C8C63400A70AB9 /* View */,
+			);
+			path = APOD;
+			sourceTree = "<group>";
+		};
+		531B88B629C8C62400A70AB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				531B88BA29C8C73500A70AB9 /* APOD.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		531B88B829C8C63400A70AB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				531B889729C8BFDA00A70AB9 /* APODViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		531B88B929C8C63F00A70AB9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		531B88BC29C8C7A700A70AB9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +189,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				531B889829C8BFDA00A70AB9 /* ViewController.swift in Sources */,
+				531B889829C8BFDA00A70AB9 /* APODViewController.swift in Sources */,
+				531B88BB29C8C73500A70AB9 /* APOD.swift in Sources */,
 				531B889429C8BFDA00A70AB9 /* AppDelegate.swift in Sources */,
 				531B889629C8BFDA00A70AB9 /* SceneDelegate.swift in Sources */,
 			);
