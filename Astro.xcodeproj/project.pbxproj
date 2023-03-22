@@ -395,6 +395,7 @@
 		531B88A529C8BFDC00A70AB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_BASE_URL = "https://api.nasa.gov/";
 				API_KEY = ixjUJxroTcOVbWjvTCmYe5RIbPw1gq89vXzmiQQi;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
