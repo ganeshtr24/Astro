@@ -21,6 +21,8 @@
 		531B88C829C933B700A70AB9 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88C729C933B700A70AB9 /* APIEndpoints.swift */; };
 		531B88CA29C9356C00A70AB9 /* APODViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88C929C9356C00A70AB9 /* APODViewModel.swift */; };
 		531B88CC29CAAFFE00A70AB9 /* DefaultTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88CB29CAAFFE00A70AB9 /* DefaultTransferService.swift */; };
+		531B88D129CAB18E00A70AB9 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88D029CAB18E00A70AB9 /* AppDIContainer.swift */; };
+		531B88D329CAB1D400A70AB9 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88D229CAB1D400A70AB9 /* AppConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		531B88C729C933B700A70AB9 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		531B88C929C9356C00A70AB9 /* APODViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModel.swift; sourceTree = "<group>"; };
 		531B88CB29CAAFFE00A70AB9 /* DefaultTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransferService.swift; sourceTree = "<group>"; };
+		531B88D029CAB18E00A70AB9 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		531B88D229CAB1D400A70AB9 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +76,9 @@
 		531B889229C8BFDA00A70AB9 /* Astro */ = {
 			isa = PBXGroup;
 			children = (
+				531B88CE29CAB0B000A70AB9 /* Application */,
 				531B88BC29C8C7A700A70AB9 /* Network */,
 				531B88B429C8C60200A70AB9 /* Screens */,
-				531B889329C8BFDA00A70AB9 /* AppDelegate.swift */,
-				531B889529C8BFDA00A70AB9 /* SceneDelegate.swift */,
 				531B889929C8BFDA00A70AB9 /* Main.storyboard */,
 				531B889C29C8BFDC00A70AB9 /* Assets.xcassets */,
 				531B889E29C8BFDC00A70AB9 /* LaunchScreen.storyboard */,
@@ -145,6 +148,25 @@
 				531B88C729C933B700A70AB9 /* APIEndpoints.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		531B88CE29CAB0B000A70AB9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				531B88CF29CAB16300A70AB9 /* DIContainer */,
+				531B889329C8BFDA00A70AB9 /* AppDelegate.swift */,
+				531B889529C8BFDA00A70AB9 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		531B88CF29CAB16300A70AB9 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				531B88D029CAB18E00A70AB9 /* AppDIContainer.swift */,
+				531B88D229CAB1D400A70AB9 /* AppConfiguration.swift */,
+			);
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,11 +243,13 @@
 				531B88CA29C9356C00A70AB9 /* APODViewModel.swift in Sources */,
 				531B889829C8BFDA00A70AB9 /* APODViewController.swift in Sources */,
 				531B88BB29C8C73500A70AB9 /* APOD.swift in Sources */,
+				531B88D329CAB1D400A70AB9 /* AppConfiguration.swift in Sources */,
 				531B889429C8BFDA00A70AB9 /* AppDelegate.swift in Sources */,
 				531B88C829C933B700A70AB9 /* APIEndpoints.swift in Sources */,
 				531B88CC29CAAFFE00A70AB9 /* DefaultTransferService.swift in Sources */,
 				531B889629C8BFDA00A70AB9 /* SceneDelegate.swift in Sources */,
 				531B88C429C92EBB00A70AB9 /* DataTransferService.swift in Sources */,
+				531B88D129CAB18E00A70AB9 /* AppDIContainer.swift in Sources */,
 				531B88C029C8C9AF00A70AB9 /* NetworkService.swift in Sources */,
 				531B88C229C928A800A70AB9 /* EndPoint.swift in Sources */,
 				531B88BE29C8C8E100A70AB9 /* NetworkConfigurable.swift in Sources */,
@@ -371,6 +395,7 @@
 		531B88A529C8BFDC00A70AB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_KEY = ixjUJxroTcOVbWjvTCmYe5RIbPw1gq89vXzmiQQi;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -398,6 +423,8 @@
 		531B88A629C8BFDC00A70AB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_BASE_URL = "https://api.nasa.gov/";
+				API_KEY = ixjUJxroTcOVbWjvTCmYe5RIbPw1gq89vXzmiQQi;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
