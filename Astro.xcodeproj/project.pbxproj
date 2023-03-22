@@ -15,6 +15,12 @@
 		531B88A029C8BFDC00A70AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531B889E29C8BFDC00A70AB9 /* LaunchScreen.storyboard */; };
 		531B88BB29C8C73500A70AB9 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88BA29C8C73500A70AB9 /* APOD.swift */; };
 		531B88BE29C8C8E100A70AB9 /* NetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88BD29C8C8E100A70AB9 /* NetworkConfigurable.swift */; };
+		531B88C029C8C9AF00A70AB9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88BF29C8C9AF00A70AB9 /* NetworkService.swift */; };
+		531B88C229C928A800A70AB9 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88C129C928A800A70AB9 /* EndPoint.swift */; };
+		531B88C429C92EBB00A70AB9 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88C329C92EBB00A70AB9 /* DataTransferService.swift */; };
+		531B88C829C933B700A70AB9 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88C729C933B700A70AB9 /* APIEndpoints.swift */; };
+		531B88CA29C9356C00A70AB9 /* APODViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88C929C9356C00A70AB9 /* APODViewModel.swift */; };
+		531B88CC29CAAFFE00A70AB9 /* DefaultTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88CB29CAAFFE00A70AB9 /* DefaultTransferService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		531B88A129C8BFDC00A70AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		531B88BA29C8C73500A70AB9 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
 		531B88BD29C8C8E100A70AB9 /* NetworkConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurable.swift; sourceTree = "<group>"; };
+		531B88BF29C8C9AF00A70AB9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		531B88C129C928A800A70AB9 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		531B88C329C92EBB00A70AB9 /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
+		531B88C729C933B700A70AB9 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		531B88C929C9356C00A70AB9 /* APODViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModel.swift; sourceTree = "<group>"; };
+		531B88CB29CAAFFE00A70AB9 /* DefaultTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransferService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,7 @@
 		531B88B529C8C61100A70AB9 /* APOD */ = {
 			isa = PBXGroup;
 			children = (
+				531B88C629C9338A00A70AB9 /* Service */,
 				531B88B929C8C63F00A70AB9 /* ViewModel */,
 				531B88B629C8C62400A70AB9 /* Model */,
 				531B88B829C8C63400A70AB9 /* View */,
@@ -109,6 +122,7 @@
 		531B88B929C8C63F00A70AB9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				531B88C929C9356C00A70AB9 /* APODViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -116,9 +130,21 @@
 		531B88BC29C8C7A700A70AB9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				531B88C329C92EBB00A70AB9 /* DataTransferService.swift */,
 				531B88BD29C8C8E100A70AB9 /* NetworkConfigurable.swift */,
+				531B88BF29C8C9AF00A70AB9 /* NetworkService.swift */,
+				531B88C129C928A800A70AB9 /* EndPoint.swift */,
+				531B88CB29CAAFFE00A70AB9 /* DefaultTransferService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		531B88C629C9338A00A70AB9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				531B88C729C933B700A70AB9 /* APIEndpoints.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,10 +218,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531B88CA29C9356C00A70AB9 /* APODViewModel.swift in Sources */,
 				531B889829C8BFDA00A70AB9 /* APODViewController.swift in Sources */,
 				531B88BB29C8C73500A70AB9 /* APOD.swift in Sources */,
 				531B889429C8BFDA00A70AB9 /* AppDelegate.swift in Sources */,
+				531B88C829C933B700A70AB9 /* APIEndpoints.swift in Sources */,
+				531B88CC29CAAFFE00A70AB9 /* DefaultTransferService.swift in Sources */,
 				531B889629C8BFDA00A70AB9 /* SceneDelegate.swift in Sources */,
+				531B88C429C92EBB00A70AB9 /* DataTransferService.swift in Sources */,
+				531B88C029C8C9AF00A70AB9 /* NetworkService.swift in Sources */,
+				531B88C229C928A800A70AB9 /* EndPoint.swift in Sources */,
 				531B88BE29C8C8E100A70AB9 /* NetworkConfigurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
