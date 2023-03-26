@@ -18,5 +18,9 @@ class AppDIContainer {
         let apiDataNetwork = DefaultNetworkService(config: config)
         return DefaultDataTransferService(with: apiDataNetwork)
     }()
+    
+    lazy var apodResponseCache: APODResponseStorage = {
+        UserDefaultResponseStorage()
+    }()
 }
 

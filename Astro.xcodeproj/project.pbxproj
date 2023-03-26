@@ -27,6 +27,16 @@
 		531B88DB29CAC4A000A70AB9 /* APODViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531B88DA29CAC4A000A70AB9 /* APODViewController.storyboard */; };
 		531B88DD29CAE68200A70AB9 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88DC29CAE68200A70AB9 /* AppAppearance.swift */; };
 		531B88E229CB098900A70AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531B88E029CB098900A70AB9 /* Main.storyboard */; };
+		531B88E429CB0B7400A70AB9 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88E329CB0B7400A70AB9 /* Observable.swift */; };
+		531B88E929CB529700A70AB9 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88E829CB529700A70AB9 /* UseCase.swift */; };
+		531B88EB29CB52F500A70AB9 /* APODUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88EA29CB52F500A70AB9 /* APODUseCase.swift */; };
+		531B88EE29CB540D00A70AB9 /* APODRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88ED29CB540D00A70AB9 /* APODRepository.swift */; };
+		531B88F329CB550500A70AB9 /* DefaultAPODRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88F229CB550500A70AB9 /* DefaultAPODRepository.swift */; };
+		531B88F729CB557900A70AB9 /* APODResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88F629CB557900A70AB9 /* APODResponseStorage.swift */; };
+		531B88FA29CB5DC700A70AB9 /* APORequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88F929CB5DC700A70AB9 /* APORequestDTO+Mapping.swift */; };
+		531B88FC29CB5DDE00A70AB9 /* APOResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88FB29CB5DDE00A70AB9 /* APOResponseDTO+Mapping.swift */; };
+		531B890129CB647700A70AB9 /* UserDefaultResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890029CB647700A70AB9 /* UserDefaultResponseStorage.swift */; };
+		531B890729CFD9A100A70AB9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890629CFD9A100A70AB9 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +62,16 @@
 		531B88DA29CAC4A000A70AB9 /* APODViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = APODViewController.storyboard; sourceTree = "<group>"; };
 		531B88DC29CAE68200A70AB9 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		531B88E129CB098900A70AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		531B88E329CB0B7400A70AB9 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		531B88E829CB529700A70AB9 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		531B88EA29CB52F500A70AB9 /* APODUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODUseCase.swift; sourceTree = "<group>"; };
+		531B88ED29CB540D00A70AB9 /* APODRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODRepository.swift; sourceTree = "<group>"; };
+		531B88F229CB550500A70AB9 /* DefaultAPODRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPODRepository.swift; sourceTree = "<group>"; };
+		531B88F629CB557900A70AB9 /* APODResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODResponseStorage.swift; sourceTree = "<group>"; };
+		531B88F929CB5DC700A70AB9 /* APORequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APORequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		531B88FB29CB5DDE00A70AB9 /* APOResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APOResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		531B890029CB647700A70AB9 /* UserDefaultResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultResponseStorage.swift; sourceTree = "<group>"; };
+		531B890629CFD9A100A70AB9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +104,12 @@
 		531B889229C8BFDA00A70AB9 /* Astro */ = {
 			isa = PBXGroup;
 			children = (
-				531B88D629CAC36000A70AB9 /* Utils */,
+				531B88F029CB54D300A70AB9 /* Data */,
+				531B88E529CB524600A70AB9 /* Domain */,
 				531B88CE29CAB0B000A70AB9 /* Application */,
 				531B88BC29C8C7A700A70AB9 /* Network */,
 				531B88B429C8C60200A70AB9 /* Screens */,
+				531B88D629CAC36000A70AB9 /* Utils */,
 				531B889C29C8BFDC00A70AB9 /* Assets.xcassets */,
 				531B889E29C8BFDC00A70AB9 /* LaunchScreen.storyboard */,
 				531B88E029CB098900A70AB9 /* Main.storyboard */,
@@ -107,6 +129,7 @@
 		531B88B529C8C61100A70AB9 /* APOD */ = {
 			isa = PBXGroup;
 			children = (
+				531B890229CF6C8A00A70AB9 /* Flows */,
 				531B88C629C9338A00A70AB9 /* Service */,
 				531B88B929C8C63F00A70AB9 /* ViewModel */,
 				531B88B629C8C62400A70AB9 /* Model */,
@@ -184,7 +207,9 @@
 		531B88D629CAC36000A70AB9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				531B890529CFD98400A70AB9 /* Extension */,
 				531B88D729CAC36D00A70AB9 /* Protocols */,
+				531B88E329CB0B7400A70AB9 /* Observable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -195,6 +220,99 @@
 				531B88D829CAC38D00A70AB9 /* StoryboardInstantiable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		531B88E529CB524600A70AB9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				531B88EC29CB53D800A70AB9 /* RepositoryInterface */,
+				531B88E629CB527400A70AB9 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		531B88E629CB527400A70AB9 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				531B88EA29CB52F500A70AB9 /* APODUseCase.swift */,
+				531B88E729CB528300A70AB9 /* Protocol */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		531B88E729CB528300A70AB9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				531B88E829CB529700A70AB9 /* UseCase.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		531B88EC29CB53D800A70AB9 /* RepositoryInterface */ = {
+			isa = PBXGroup;
+			children = (
+				531B88ED29CB540D00A70AB9 /* APODRepository.swift */,
+			);
+			path = RepositoryInterface;
+			sourceTree = "<group>";
+		};
+		531B88F029CB54D300A70AB9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				531B88F829CB5D9D00A70AB9 /* DataMapping */,
+				531B88F529CB555F00A70AB9 /* PersistanceStorage */,
+				531B88F129CB54DF00A70AB9 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		531B88F129CB54DF00A70AB9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				531B88F229CB550500A70AB9 /* DefaultAPODRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		531B88F529CB555F00A70AB9 /* PersistanceStorage */ = {
+			isa = PBXGroup;
+			children = (
+				531B88FF29CB644200A70AB9 /* APODResponseStorage */,
+			);
+			path = PersistanceStorage;
+			sourceTree = "<group>";
+		};
+		531B88F829CB5D9D00A70AB9 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				531B88F929CB5DC700A70AB9 /* APORequestDTO+Mapping.swift */,
+				531B88FB29CB5DDE00A70AB9 /* APOResponseDTO+Mapping.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		531B88FF29CB644200A70AB9 /* APODResponseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				531B88F629CB557900A70AB9 /* APODResponseStorage.swift */,
+				531B890029CB647700A70AB9 /* UserDefaultResponseStorage.swift */,
+			);
+			path = APODResponseStorage;
+			sourceTree = "<group>";
+		};
+		531B890229CF6C8A00A70AB9 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		531B890529CFD98400A70AB9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				531B890629CFD9A100A70AB9 /* Date+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,18 +389,28 @@
 			files = (
 				531B88CA29C9356C00A70AB9 /* APODViewModel.swift in Sources */,
 				531B889829C8BFDA00A70AB9 /* APODViewController.swift in Sources */,
+				531B88F329CB550500A70AB9 /* DefaultAPODRepository.swift in Sources */,
 				531B88BB29C8C73500A70AB9 /* APOD.swift in Sources */,
+				531B88EE29CB540D00A70AB9 /* APODRepository.swift in Sources */,
+				531B890129CB647700A70AB9 /* UserDefaultResponseStorage.swift in Sources */,
 				531B88D329CAB1D400A70AB9 /* AppConfiguration.swift in Sources */,
 				531B889429C8BFDA00A70AB9 /* AppDelegate.swift in Sources */,
 				531B88C829C933B700A70AB9 /* APIEndpoints.swift in Sources */,
 				531B88CC29CAAFFE00A70AB9 /* DefaultTransferService.swift in Sources */,
 				531B88D929CAC38D00A70AB9 /* StoryboardInstantiable.swift in Sources */,
+				531B88F729CB557900A70AB9 /* APODResponseStorage.swift in Sources */,
+				531B88EB29CB52F500A70AB9 /* APODUseCase.swift in Sources */,
 				531B889629C8BFDA00A70AB9 /* SceneDelegate.swift in Sources */,
+				531B88FA29CB5DC700A70AB9 /* APORequestDTO+Mapping.swift in Sources */,
+				531B890729CFD9A100A70AB9 /* Date+Extension.swift in Sources */,
 				531B88C429C92EBB00A70AB9 /* DataTransferService.swift in Sources */,
 				531B88D129CAB18E00A70AB9 /* AppDIContainer.swift in Sources */,
 				531B88D529CAC19800A70AB9 /* AppFlowCoordinator.swift in Sources */,
+				531B88E429CB0B7400A70AB9 /* Observable.swift in Sources */,
 				531B88C029C8C9AF00A70AB9 /* NetworkService.swift in Sources */,
 				531B88C229C928A800A70AB9 /* EndPoint.swift in Sources */,
+				531B88FC29CB5DDE00A70AB9 /* APOResponseDTO+Mapping.swift in Sources */,
+				531B88E929CB529700A70AB9 /* UseCase.swift in Sources */,
 				531B88BE29C8C8E100A70AB9 /* NetworkConfigurable.swift in Sources */,
 				531B88DD29CAE68200A70AB9 /* AppAppearance.swift in Sources */,
 			);

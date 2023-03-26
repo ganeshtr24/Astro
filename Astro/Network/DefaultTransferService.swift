@@ -7,13 +7,25 @@
 
 import Foundation
 
+protocol DataCache {
+    func fetchData<T>(for key: String) -> T?
+}
+
+class DefaultCache: DataCache {
+    let userDefault: UserDefaults = UserDefaults.standard
+    
+    func fetchData<T>(for date: String) -> T? {
+        UserDefaults.standard.value(forKey: date) as? T
+    }
+}
+
 final class DefaultDataTransferService {
     
     private let networkService: NetworkService
     private let errorResolver: DataTransferErrorResolver
     
     init(with networkService: NetworkService,
-                errorResolver: DataTransferErrorResolver = DefaultDataTransferErrorResolver()) {
+              errorResolver: DataTransferErrorResolver = DefaultDataTransferErrorResolver()) {
         self.networkService = networkService
         self.errorResolver = errorResolver
     }

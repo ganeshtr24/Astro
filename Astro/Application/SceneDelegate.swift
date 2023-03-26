@@ -24,13 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                let window = UIWindow(windowScene: windowScene)
                 AppAppearance.setupAppearance()
                 let navigationController = UINavigationController()
-                appFlowCoordinator = AppFlowCoordinator()
+                appFlowCoordinator =
+                    AppFlowCoordinator(navigationController: navigationController,
+                                       appDIContainer: appDIContainer)
                 window.rootViewController = navigationController
-            appFlowCoordinator = AppFlowCoordinator()
-            appFlowCoordinator?.start(navigationController: navigationController,
-                                      diContainer: appDIContainer)
-            self.window = window
-            window.makeKeyAndVisible()
+                appFlowCoordinator?.start()
+                self.window = window
+                window.makeKeyAndVisible()
            }
         
     }

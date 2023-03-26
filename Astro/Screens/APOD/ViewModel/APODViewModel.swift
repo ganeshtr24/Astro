@@ -9,21 +9,39 @@ import Foundation
 
 
 class APODViewModel {
-    let service: DataTransferService
-    var aPod: APOD?
+    let useCase: APODUseCase
+    var aPod: Observable<APOD?> = Observable(.none)
+    let error: Observable<String> = Observable("")
     
-    init(service: DataTransferService) {
-        self.service = service
+    var title: String? {
+        aPod.value?.title
     }
     
-    func fetchAPOD(completion: @escaping (APOD)->Void) {
-        let endPoint = APIEndpoints.getDPOD()
-        self.service.request(with: endPoint) {[weak self] result in
-            guard let self else { return }
+    var explanation: String? {
+        aPod.value?.explanation
+    }
+    
+    var url: String? {
+        aPod.value?.url
+    }
+    
+    var date: String? {
+        aPod.value?.date
+    }
+    
+    init(useCase: APODUseCase) {
+        self.useCase = useCase
+    }
+    
+    func fetchAPOD() {
+        let request = APODRequest(thumb: true,
+                                  date: Date().getDate())
+        useCase.execute(requestValue: request) { cache in
+            self.aPod.value = cache
+        } completion: { result in
             switch result {
             case .success(let apod):
-                self.aPod = apod
-                completion(apod)
+                self.aPod.value = apod
             case .failure(let error):
                 print(error)
             }

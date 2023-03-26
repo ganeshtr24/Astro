@@ -25,18 +25,22 @@ class APODViewController: UIViewController, StoryboardInstantiable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.fetchAPOD { apod in
-            self.title = apod.date
-            self.titleLabel.text = apod.title
-            self.descriptionLabel.text = apod.explanation
-            let url = URL(string: apod.url)
-            let data = try? Data(contentsOf: url!)
-            self.imageView.image = UIImage(data: data!)
+        viewModel.aPod.observe(on: self) { [weak self] _ in
+            self?.updateViews()
         }
+        viewModel.fetchAPOD()
         // Do any additional setup after loading the view.
     }
 
-
+    func updateViews() {
+        self.title = viewModel.date
+        self.titleLabel.text = viewModel.title
+        self.descriptionLabel.text = viewModel.explanation
+        if let url = viewModel.url {
+            let url = URL(string: url)
+            let data = try? Data(contentsOf: url!)
+            self.imageView.image = UIImage(data: data!)
+        }
+    }
 }
 

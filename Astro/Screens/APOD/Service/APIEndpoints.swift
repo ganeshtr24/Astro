@@ -8,9 +8,9 @@
 import Foundation
 
 struct APIEndpoints {
-    static func getDPOD() -> Endpoint<APOD> {
+    static func getDPOD(with apodRequestDTO: APODRequestDTO) -> Endpoint<APODResponseDTO> {
         return Endpoint(path: "planetary/apod",
                         method: .get,
-                        queryParameters: ["thumbs": true])
+                        queryParameters: ["thumbs": apodRequestDTO.thumbs])
     }
 }
