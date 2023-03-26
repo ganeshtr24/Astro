@@ -36,10 +36,10 @@ class APODViewController: UIViewController, StoryboardInstantiable {
         self.title = viewModel.date
         self.titleLabel.text = viewModel.title
         self.descriptionLabel.text = viewModel.explanation
-        if let url = viewModel.url {
-            let url = URL(string: url)
-            let data = try? Data(contentsOf: url!)
-            self.imageView.image = UIImage(data: data!)
+        if let urlString = viewModel.url,
+            let url = URL(string: urlString),
+            let data = try? Data(contentsOf: url) {
+            self.imageView.image = UIImage(data: data)
         }
     }
 }

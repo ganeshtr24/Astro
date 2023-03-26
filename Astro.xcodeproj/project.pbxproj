@@ -37,6 +37,7 @@
 		531B88FC29CB5DDE00A70AB9 /* APOResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B88FB29CB5DDE00A70AB9 /* APOResponseDTO+Mapping.swift */; };
 		531B890129CB647700A70AB9 /* UserDefaultResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890029CB647700A70AB9 /* UserDefaultResponseStorage.swift */; };
 		531B890729CFD9A100A70AB9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890629CFD9A100A70AB9 /* Date+Extension.swift */; };
+		531B890929D0036800A70AB9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890829D0036800A70AB9 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		531B88FB29CB5DDE00A70AB9 /* APOResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APOResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		531B890029CB647700A70AB9 /* UserDefaultResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultResponseStorage.swift; sourceTree = "<group>"; };
 		531B890629CFD9A100A70AB9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		531B890829D0036800A70AB9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				531B890629CFD9A100A70AB9 /* Date+Extension.swift */,
+				531B890829D0036800A70AB9 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				531B88C429C92EBB00A70AB9 /* DataTransferService.swift in Sources */,
 				531B88D129CAB18E00A70AB9 /* AppDIContainer.swift in Sources */,
 				531B88D529CAC19800A70AB9 /* AppFlowCoordinator.swift in Sources */,
+				531B890929D0036800A70AB9 /* String+Extension.swift in Sources */,
 				531B88E429CB0B7400A70AB9 /* Observable.swift in Sources */,
 				531B88C029C8C9AF00A70AB9 /* NetworkService.swift in Sources */,
 				531B88C229C928A800A70AB9 /* EndPoint.swift in Sources */,

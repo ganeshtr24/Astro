@@ -22,7 +22,13 @@ class APODViewModel {
     }
     
     var url: String? {
-        aPod.value?.url
+        if let isValidURL = aPod.value?.url.validUrl(), isValidURL {
+            return aPod.value?.url
+        }
+        if let isValidThumbNailURL = aPod.value?.thumbnailURL.validUrl(), isValidThumbNailURL {
+            return aPod.value?.thumbnailURL
+        }
+        return nil
     }
     
     var date: String? {

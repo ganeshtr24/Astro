@@ -16,7 +16,11 @@ class UserDefaultResponseStorage: APODResponseStorage {
     }
     
     func getResponse(for request: APODRequestDTO, completion: @escaping (APODResponseDTO?) -> ()) {
-        let responseDTO = userDefault.value(forKey: request.date) as? APODResponseDTO
+        guard let data = userDefault.value(forKey: request.date) as? Data,
+              let responseDTO = try? JSONDecoder().decode(APODResponseDTO.self, from: data) else {
+            completion(nil)
+            return
+        }
         completion(responseDTO)
     }
     

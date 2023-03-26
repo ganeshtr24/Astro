@@ -32,7 +32,13 @@ extension DefaultAPODRepository:  APODRepository {
                         self.cache.save(response: responseDTO, for: APODRequestDTO(thumbs: false, date: self.lastFetchedAPOD))
                         completion(.success(responseDTO.toDomain()))
                     case .failure(let error):
-                        completion(.failure(error))
+                        self.cache.getResponse(for: APODRequestDTO(thumbs: false, date: self.lastFetchedAPOD)) { responseDTO in
+                            if let responseDTO {
+                                completion(.success(responseDTO.toDomain()))
+                            } else {
+                                completion(.failure(error))
+                            }
+                        }
                     }
                 }
             }
