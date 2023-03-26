@@ -8,17 +8,17 @@
 import Foundation
 
 protocol NetworkConfigurable {
-    var baseURL: URL { get }
+    var baseURL: URL? { get }
     var headers: [String: String] { get }
     var queryParameters: [String: String] { get }
 }
 
 public struct DefaultNetworkConfig: NetworkConfigurable {
-    public let baseURL: URL
+    public let baseURL: URL?
     public let headers: [String: String]
     public let queryParameters: [String: String]
     
-     public init(baseURL: URL,
+     public init(baseURL: URL? = nil,
                  headers: [String: String] = [:],
                  queryParameters: [String: String] = [:]) {
         self.baseURL = baseURL

@@ -16,6 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-AP-jyn">
+                                <rect key="frame" x="10" y="47" width="370" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="znS-Hn-eIG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ey5-cb-4M9">
                                 <rect key="frame" x="16" y="47" width="374" height="763"/>
                                 <subviews>
@@ -76,28 +85,36 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ey5-cb-4M9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9zg-hq-aJy"/>
+                            <constraint firstItem="ey5-cb-4M9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vDu-zF-Fre" secondAttribute="top" id="9zg-hq-aJy"/>
+                            <constraint firstItem="VJy-AP-jyn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="Jbg-q5-bo1"/>
                             <constraint firstItem="mcl-aj-wVW" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.917949" id="MT5-Kj-4p5"/>
+                            <constraint firstItem="ey5-cb-4M9" firstAttribute="top" secondItem="VJy-AP-jyn" secondAttribute="bottom" id="Mph-el-7im"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VJy-AP-jyn" secondAttribute="trailing" constant="10" id="V0F-GV-dus"/>
                             <constraint firstItem="ey5-cb-4M9" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="VG0-ir-HA5"/>
                             <constraint firstAttribute="trailing" secondItem="ey5-cb-4M9" secondAttribute="trailing" id="Vtk-0V-4nt"/>
                             <constraint firstItem="ey5-cb-4M9" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ann-Nu-loE"/>
+                            <constraint firstItem="VJy-AP-jyn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="lYg-Wj-dei"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="8Vb-dv-DEX" id="4Ck-f2-DRo"/>
+                        <outlet property="errorLabel" destination="VJy-AP-jyn" id="i3g-R9-t6n"/>
                         <outlet property="imageView" destination="8ds-Ij-Xyq" id="nJw-hW-ySs"/>
                         <outlet property="titleLabel" destination="cqC-pJ-TyM" id="GWe-Jr-sGd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-497" y="11"/>
+            <point key="canvasLocation" x="-498.46153846153845" y="10.663507109004739"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -17,26 +17,26 @@ class DefaultAPODRepository {
 }
 
 extension DefaultAPODRepository:  APODRepository {
-    func fetchAPOD(thumbs: Bool, date: String, cached: @escaping (APOD) -> Void, completion: @escaping (Result<APOD, Error>) -> Void) {
+    func fetchAPOD(thumbs: Bool, date: String,
+                   completion: @escaping (APOD?, Error?) -> Void) {
         let requestDTO = APODRequestDTO(thumbs: thumbs, date: date)
         self.cache.getResponse(for: requestDTO) { response in
             if let response {
-                cached(response.toDomain())
+                completion(response.toDomain(), nil)
             } else {
                 let endpoint = APIEndpoints.getDPOD(with: requestDTO)
-                
                 self.dataTransferService.request(with: endpoint) { result in
                     switch result {
-                    case.success(let responseDTO):
+                    case .success(let responseDTO):
                         self.cache.save(response: responseDTO, for: requestDTO)
                         self.cache.save(response: responseDTO, for: APODRequestDTO(thumbs: false, date: self.lastFetchedAPOD))
-                        completion(.success(responseDTO.toDomain()))
+                        completion(responseDTO.toDomain(), nil)
                     case .failure(let error):
                         self.cache.getResponse(for: APODRequestDTO(thumbs: false, date: self.lastFetchedAPOD)) { responseDTO in
                             if let responseDTO {
-                                completion(.success(responseDTO.toDomain()))
+                                completion(responseDTO.toDomain(), error)
                             } else {
-                                completion(.failure(error))
+                                completion(nil, error)
                             }
                         }
                     }

@@ -9,6 +9,8 @@ import UIKit
 
 class APODViewController: UIViewController, StoryboardInstantiable {
     
+    @IBOutlet weak var errorLabel: UILabel!
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,6 +30,12 @@ class APODViewController: UIViewController, StoryboardInstantiable {
         viewModel.aPod.observe(on: self) { [weak self] _ in
             self?.updateViews()
         }
+        viewModel.aPodImage.observe(on: self) { [weak self] image in
+            self?.updateViews()
+        }
+        viewModel.error.observe(on: self) { [weak self] error in
+            self?.errorLabel.text = error
+        }
         viewModel.fetchAPOD()
         // Do any additional setup after loading the view.
     }
@@ -36,11 +44,7 @@ class APODViewController: UIViewController, StoryboardInstantiable {
         self.title = viewModel.date
         self.titleLabel.text = viewModel.title
         self.descriptionLabel.text = viewModel.explanation
-        if let urlString = viewModel.url,
-            let url = URL(string: urlString),
-            let data = try? Data(contentsOf: url) {
-            self.imageView.image = UIImage(data: data)
-        }
+        self.imageView.image = viewModel.image
     }
 }
 

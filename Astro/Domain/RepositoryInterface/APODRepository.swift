@@ -10,6 +10,5 @@ import Foundation
 protocol APODRepository {
     func fetchAPOD(thumbs: Bool,
                    date: String,
-                   cached: @escaping (APOD) -> Void,
-                   completion: @escaping (Result<APOD, Error>) -> Void)
+                   completion: @escaping (APOD?, Error?) -> Void)
 }

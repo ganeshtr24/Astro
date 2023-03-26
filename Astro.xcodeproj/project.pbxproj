@@ -38,6 +38,9 @@
 		531B890129CB647700A70AB9 /* UserDefaultResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890029CB647700A70AB9 /* UserDefaultResponseStorage.swift */; };
 		531B890729CFD9A100A70AB9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890629CFD9A100A70AB9 /* Date+Extension.swift */; };
 		531B890929D0036800A70AB9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890829D0036800A70AB9 /* String+Extension.swift */; };
+		531B890B29D00C3D00A70AB9 /* DefaultImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890A29D00C3D00A70AB9 /* DefaultImageRepository.swift */; };
+		531B890E29D04B7000A70AB9 /* NSCacheDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890D29D04B7000A70AB9 /* NSCacheDataStorage.swift */; };
+		531B891029D0A52900A70AB9 /* ErrorResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890F29D0A52900A70AB9 /* ErrorResolver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		531B890029CB647700A70AB9 /* UserDefaultResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultResponseStorage.swift; sourceTree = "<group>"; };
 		531B890629CFD9A100A70AB9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		531B890829D0036800A70AB9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		531B890A29D00C3D00A70AB9 /* DefaultImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageRepository.swift; sourceTree = "<group>"; };
+		531B890D29D04B7000A70AB9 /* NSCacheDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCacheDataStorage.swift; sourceTree = "<group>"; };
+		531B890F29D0A52900A70AB9 /* ErrorResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResolver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,22 +269,24 @@
 			children = (
 				531B88F829CB5D9D00A70AB9 /* DataMapping */,
 				531B88F529CB555F00A70AB9 /* PersistanceStorage */,
-				531B88F129CB54DF00A70AB9 /* Repository */,
+				531B88F129CB54DF00A70AB9 /* Repositories */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		531B88F129CB54DF00A70AB9 /* Repository */ = {
+		531B88F129CB54DF00A70AB9 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				531B88F229CB550500A70AB9 /* DefaultAPODRepository.swift */,
+				531B890A29D00C3D00A70AB9 /* DefaultImageRepository.swift */,
 			);
-			path = Repository;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		531B88F529CB555F00A70AB9 /* PersistanceStorage */ = {
 			isa = PBXGroup;
 			children = (
+				531B890C29D04B4800A70AB9 /* NSCacheDataStorage */,
 				531B88FF29CB644200A70AB9 /* APODResponseStorage */,
 			);
 			path = PersistanceStorage;
@@ -314,8 +322,17 @@
 			children = (
 				531B890629CFD9A100A70AB9 /* Date+Extension.swift */,
 				531B890829D0036800A70AB9 /* String+Extension.swift */,
+				531B890F29D0A52900A70AB9 /* ErrorResolver.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		531B890C29D04B4800A70AB9 /* NSCacheDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				531B890D29D04B7000A70AB9 /* NSCacheDataStorage.swift */,
+			);
+			path = NSCacheDataStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,13 +415,16 @@
 				531B890129CB647700A70AB9 /* UserDefaultResponseStorage.swift in Sources */,
 				531B88D329CAB1D400A70AB9 /* AppConfiguration.swift in Sources */,
 				531B889429C8BFDA00A70AB9 /* AppDelegate.swift in Sources */,
+				531B890E29D04B7000A70AB9 /* NSCacheDataStorage.swift in Sources */,
 				531B88C829C933B700A70AB9 /* APIEndpoints.swift in Sources */,
 				531B88CC29CAAFFE00A70AB9 /* DefaultTransferService.swift in Sources */,
 				531B88D929CAC38D00A70AB9 /* StoryboardInstantiable.swift in Sources */,
 				531B88F729CB557900A70AB9 /* APODResponseStorage.swift in Sources */,
 				531B88EB29CB52F500A70AB9 /* APODUseCase.swift in Sources */,
+				531B891029D0A52900A70AB9 /* ErrorResolver.swift in Sources */,
 				531B889629C8BFDA00A70AB9 /* SceneDelegate.swift in Sources */,
 				531B88FA29CB5DC700A70AB9 /* APORequestDTO+Mapping.swift in Sources */,
+				531B890B29D00C3D00A70AB9 /* DefaultImageRepository.swift in Sources */,
 				531B890729CFD9A100A70AB9 /* Date+Extension.swift in Sources */,
 				531B88C429C92EBB00A70AB9 /* DataTransferService.swift in Sources */,
 				531B88D129CAB18E00A70AB9 /* AppDIContainer.swift in Sources */,

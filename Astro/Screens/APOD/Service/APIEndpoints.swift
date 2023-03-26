@@ -13,4 +13,9 @@ struct APIEndpoints {
                         method: .get,
                         queryParameters: ["thumbs": apodRequestDTO.thumbs])
     }
+    
+    static func getImage(with url: String) -> Endpoint<Data> {
+        return Endpoint(path: url,isFullPath: true, method: .get, responseDecoder: RawDataResponseDecoder())
+    }
+    
 }

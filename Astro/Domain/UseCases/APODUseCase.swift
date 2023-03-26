@@ -14,8 +14,7 @@ struct APODRequest {
 
 protocol APODUseCase {
     func execute(requestValue: APODRequest,
-                 cached: @escaping (APOD) -> Void,
-                 completion: @escaping (Result<APOD, Error>) -> Void)
+                 completion: @escaping (APOD?, Error?) -> Void)
 }
 
 final class DefaultAPODUseCase: APODUseCase {
@@ -25,13 +24,10 @@ final class DefaultAPODUseCase: APODUseCase {
         self.apodRepository = apodRepository
     }
     
-    func execute(requestValue: APODRequest, cached: @escaping (APOD) -> Void, completion: @escaping (Result<APOD, Error>) -> Void) {
-        
+    func execute(requestValue: APODRequest, completion: @escaping (APOD?, Error?) -> Void) {
         self.apodRepository.fetchAPOD(thumbs: requestValue.thumb,
-                                      date: requestValue.date) { apod in
-            cached(apod)
-        } completion: { result in
-            completion(result)
+                                      date: requestValue.date){ apod, error in
+            completion(apod,error)
         }
     }
     

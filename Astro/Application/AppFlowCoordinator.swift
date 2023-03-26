@@ -24,11 +24,16 @@ class AppFlowCoordinator {
     }
     
     func makeAPODViewMode() -> APODViewModel {
-        APODViewModel(useCase: makeAPODUseCase())
+        APODViewModel(useCase: makeAPODUseCase(),
+                      imageRepository: makeImageRepository())
     }
     
     func makeAPODUseCase() -> APODUseCase {
         DefaultAPODUseCase(apodRepository: makeAPODRepository())
+    }
+    
+    func makeImageRepository() -> ImageRepository {
+        DefaultImageRepository(dataService: self.appDIContainer.imageDataTransferService)
     }
                            
     func makeAPODRepository() -> DefaultAPODRepository {

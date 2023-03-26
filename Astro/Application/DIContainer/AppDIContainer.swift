@@ -13,7 +13,17 @@ class AppDIContainer {
 //     MARK: - Network
     lazy var apiDataTransferService: DataTransferService = {
         let config = DefaultNetworkConfig(baseURL: URL(string: appConfiguration.apiBaseURL)!,
-                                          queryParameters: ["api_key": appConfiguration.apiKey])
+                                          queryParameters: ["api_key": appConfiguration.apiKey
+//                                                            ,"date":"2023-03-24"
+                                                           ]
+        )
+
+        let apiDataNetwork = DefaultNetworkService(config: config)
+        return DefaultDataTransferService(with: apiDataNetwork)
+    }()
+    
+    lazy var imageDataTransferService: DataTransferService = {
+        let config = DefaultNetworkConfig()
 
         let apiDataNetwork = DefaultNetworkService(config: config)
         return DefaultDataTransferService(with: apiDataNetwork)
