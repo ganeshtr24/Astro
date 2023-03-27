@@ -24,7 +24,7 @@ class AppFlowCoordinator {
     }
     
     func makeAPODViewMode() -> APODViewModel {
-        APODViewModel(useCase: makeAPODUseCase(),
+        DefaultAPODViewModel(useCase: makeAPODUseCase(),
                       imageRepository: makeImageRepository())
     }
     

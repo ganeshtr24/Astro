@@ -14,12 +14,12 @@ final class APODViewModelTests: XCTestCase {
     static let apod = APOD(copyright: "Cari Letelier", date: "2023-03-27", explanation: "Reports of powerful solar flares started a seven-hour quest north to capture modern monuments against an aurora-filled sky. The peaks of iconic Arctic Henge in Raufarhöfn in northern Iceland were already aligned with the stars: some are lined up toward the exact north from one side and toward exact south from the other. The featured image, taken after sunset late last month, looks directly south, but since the composite image covers so much of the sky, the north star Polaris is actually visible at the very top of the frame. Also visible are familiar constellations including the Great Bear (Ursa Major) on the left, and the Hunter (Orion) on the lower right. The quest was successful. The sky lit up dramatically with bright and memorable auroras that shimmered with amazing colors including red, pink, yellow, and green -- sometimes several at once.", url: "https://apod.nasa.gov/apod/image/2303/ArcticHenge_Letelier_960.jpg", hdurl: "https://apod.nasa.gov/apod/image/2303/ArcticHenge_Letelier_1765.jpg", title: "Aurora Over Arctic Henge", thumbnailURL: nil)
     
     var useCase: APODUseCase!
-    var viewModel: APODViewModel!
+    var viewModel: DefaultAPODViewModel!
     
     
     func test_whenActiveNetworkConnection_thenFetchesAPOD_shouldAlwaysProvideAPOD() {
         useCase = APODMockUseCase(pod: Self.apod, error: nil)
-        viewModel = APODViewModel(useCase: useCase, imageRepository: nil)
+        viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
         viewModel.aPod.observe(on: self) { apod in
             if let apod {
                 XCTAssertTrue(apod.date == Self.apod.date)
@@ -32,7 +32,7 @@ final class APODViewModelTests: XCTestCase {
         let expectation = expectation(description: "test_whenApiFailure_thenFetchesAPOD_shouldAlwaysProvideError")
         expectation.expectedFulfillmentCount = 2
         useCase = APODMockUseCase(pod: nil, error: DataTransferError.networkFailure(.notConnected))
-        viewModel = APODViewModel(useCase: useCase, imageRepository: nil)
+        viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
         viewModel.aPod.observe(on: self) { apod in
             XCTAssertNil(apod)
         }
@@ -50,8 +50,8 @@ final class APODViewModelTests: XCTestCase {
         let defaultTransferService = DefaultDataTransferService(with: mockNetworkService)
         let apodRepository = DefaultAPODRepository(dataTransferService: defaultTransferService, cache: UserDefaultResponseStorage())
         useCase = DefaultAPODUseCase(apodRepository: apodRepository)
-        viewModel = APODViewModel(useCase: useCase, imageRepository: nil)
-        viewModel.fetchAPOD(APODRequest(thumb: true, date: "26.03.2023"))
+        viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
+        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "26.03.2023"))
         
         viewModel.aPod.observe(on: self) { apod in
             if let apod {
@@ -60,7 +60,7 @@ final class APODViewModelTests: XCTestCase {
         }
         mockNetworkService.data = nil
         mockNetworkService.error = .notConnected
-        viewModel.fetchAPOD(APODRequest(thumb: true, date: "27.03.2023"))
+        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "27.03.2023"))
     }
     
     func test_whenUserOpensApp_onActiveInternetConnection_ShouldAlwaysProvideFreshAPOD () {
@@ -69,17 +69,17 @@ final class APODViewModelTests: XCTestCase {
         let defaultTransferService = DefaultDataTransferService(with: mockNetworkService)
         let apodRepository = DefaultAPODRepository(dataTransferService: defaultTransferService, cache: UserDefaultResponseStorage())
         useCase = DefaultAPODUseCase(apodRepository: apodRepository)
-        viewModel = APODViewModel(useCase: useCase, imageRepository: nil)
-        viewModel.fetchAPOD(APODRequest(thumb: true, date: "26.03.2023"))
+        viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
+        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "26.03.2023"))
         viewModel = nil
-        viewModel = APODViewModel(useCase: useCase, imageRepository: nil)
+        viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
         viewModel.aPod.observe(on: self) { apod in
             if let apod {
                 XCTAssertTrue(apod.date == Self.apod.date)
             }
         }
         mockNetworkService.data = Self.apod.toData()
-        viewModel.fetchAPOD(APODRequest(thumb: true, date: "27.03.2023"))
+        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "27.03.2023"))
     }
     
     func test_whenUserOpensApp_onInActiveInternetConnection_ShouldAlwaysProvideError () {
@@ -93,11 +93,11 @@ final class APODViewModelTests: XCTestCase {
         userDefaultStorage.resetDefault()
         let apodRepository = DefaultAPODRepository(dataTransferService: defaultTransferService, cache: userDefaultStorage)
         useCase = DefaultAPODUseCase(apodRepository: apodRepository)
-        viewModel = APODViewModel(useCase: useCase, imageRepository: nil)
+        viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
         viewModel.error.observe(on: self) { _ in
             expectation.fulfill()
         }
-        viewModel.fetchAPOD(APODRequest(thumb: true, date: "27.03.2023"))
+        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "27.03.2023"))
         waitForExpectations(timeout:2, handler: nil)
         XCTAssertEqual(viewModel.error.value, "We are not connected to the internet, showing you the last image we have.")
     }

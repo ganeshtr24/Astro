@@ -8,12 +8,29 @@
 import Foundation
 import UIKit
 
-class APODViewModel {
-    let useCase: APODUseCase
-    let imageRepository: ImageRepository?
-    var aPod: Observable<APOD?> = Observable(.none)
-    var aPodImage: Observable<UIImage?> = Observable(.none)
-    let error: Observable<String?> = Observable(nil)
+protocol APODViewModelInput {
+    func fetchAPOD()
+}
+
+protocol APODViewModelOutput {
+    var aPod: Observable<APOD?> { get }
+    var aPodImage: Observable<UIImage?> { get }
+    var error: Observable<String?> { get }
+    var title: String? { get }
+    var explanation: String? { get }
+    var image: UIImage? { get }
+    var url: String? { get }
+    var date: String? { get }
+}
+
+protocol APODViewModel: APODViewModelInput, APODViewModelOutput { }
+
+class DefaultAPODViewModel: APODViewModel {
+    private let useCase: APODUseCase
+    private let imageRepository: ImageRepository?
+    private(set) var aPod: Observable<APOD?> = Observable(.none)
+    private(set) var aPodImage: Observable<UIImage?> = Observable(.none)
+    private(set) var error: Observable<String?> = Observable(nil)
     
     var title: String? {
         aPod.value?.title
@@ -47,7 +64,11 @@ class APODViewModel {
         self.imageRepository = imageRepository
     }
     
-    func fetchAPOD(_ request: APODRequest = APODRequest(thumb: true, date: Date().getDate())) {
+    func fetchAPOD() {
+        fetchAPOD()
+    }
+    
+    func fetchAPOD(with request: APODRequest = APODRequest(thumb: true, date: Date().getDate())) {
         useCase.execute(requestValue: request){ apod, error in
             self.aPod.value = apod
             self.fetchImage()
