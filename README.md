@@ -11,3 +11,7 @@ Error
 
 ScreenDesign
  - Preview screen to view the image in full screen
+ 
+AstroTest
+ - Load stub from json file
+ 

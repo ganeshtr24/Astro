@@ -10,10 +10,10 @@ import UIKit
 
 class APODViewModel {
     let useCase: APODUseCase
-    let imageRepository: ImageRepository
+    let imageRepository: ImageRepository?
     var aPod: Observable<APOD?> = Observable(.none)
     var aPodImage: Observable<UIImage?> = Observable(.none)
-    let error: Observable<String> = Observable("")
+    let error: Observable<String?> = Observable(nil)
     
     var title: String? {
         aPod.value?.title
@@ -42,14 +42,12 @@ class APODViewModel {
     }
     
     init(useCase: APODUseCase,
-         imageRepository: ImageRepository) {
+         imageRepository: ImageRepository?) {
         self.useCase = useCase
         self.imageRepository = imageRepository
     }
     
-    func fetchAPOD() {
-        let request = APODRequest(thumb: true,
-                                  date: Date().getDate())
+    func fetchAPOD(_ request: APODRequest = APODRequest(thumb: true, date: Date().getDate())) {
         useCase.execute(requestValue: request){ apod, error in
             self.aPod.value = apod
             self.fetchImage()
@@ -62,7 +60,7 @@ class APODViewModel {
     
     func fetchImage() {
         guard let url = url else { return }
-        imageRepository.fetchImage(with: url) { result in
+        imageRepository?.fetchImage(with: url) { result in
             switch result {
             case .success(let data):
                 if let image = UIImage(data: data) {

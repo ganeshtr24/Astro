@@ -29,4 +29,11 @@ class UserDefaultResponseStorage: APODResponseStorage {
             userDefault.set(data, forKey: requestDto.date)
         }
     }
+    
+    func resetDefault() {
+        if let appDomain = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        }
+    }
+    
 }

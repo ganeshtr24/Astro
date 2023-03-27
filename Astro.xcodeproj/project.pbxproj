@@ -42,6 +42,8 @@
 		531B890E29D04B7000A70AB9 /* NSCacheDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890D29D04B7000A70AB9 /* NSCacheDataStorage.swift */; };
 		531B891029D0A52900A70AB9 /* ErrorResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B890F29D0A52900A70AB9 /* ErrorResolver.swift */; };
 		531B891829D14B0500A70AB9 /* AstroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B891729D14B0500A70AB9 /* AstroTests.swift */; };
+		531B892129D14BC000A70AB9 /* APODViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B892029D14BC000A70AB9 /* APODViewModelTests.swift */; };
+		531B892429D1856D00A70AB9 /* APODMockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531B892329D1856D00A70AB9 /* APODMockUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		531B890F29D0A52900A70AB9 /* ErrorResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResolver.swift; sourceTree = "<group>"; };
 		531B891529D14B0400A70AB9 /* AstroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		531B891729D14B0500A70AB9 /* AstroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroTests.swift; sourceTree = "<group>"; };
+		531B892029D14BC000A70AB9 /* APODViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModelTests.swift; sourceTree = "<group>"; };
+		531B892329D1856D00A70AB9 /* APODMockUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODMockUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,10 +201,10 @@
 			isa = PBXGroup;
 			children = (
 				531B88C329C92EBB00A70AB9 /* DataTransferService.swift */,
+				531B88CB29CAAFFE00A70AB9 /* DefaultTransferService.swift */,
 				531B88BD29C8C8E100A70AB9 /* NetworkConfigurable.swift */,
 				531B88BF29C8C9AF00A70AB9 /* NetworkService.swift */,
 				531B88C129C928A800A70AB9 /* EndPoint.swift */,
-				531B88CB29CAAFFE00A70AB9 /* DefaultTransferService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -360,9 +364,35 @@
 		531B891629D14B0500A70AB9 /* AstroTests */ = {
 			isa = PBXGroup;
 			children = (
+				531B891E29D14B6B00A70AB9 /* Presentation */,
 				531B891729D14B0500A70AB9 /* AstroTests.swift */,
 			);
 			path = AstroTests;
+			sourceTree = "<group>";
+		};
+		531B891E29D14B6B00A70AB9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				531B892229D183DA00A70AB9 /* Domain */,
+				531B891F29D14B7400A70AB9 /* ViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		531B891F29D14B7400A70AB9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				531B892029D14BC000A70AB9 /* APODViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		531B892229D183DA00A70AB9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				531B892329D1856D00A70AB9 /* APODMockUseCase.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,6 +534,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531B892429D1856D00A70AB9 /* APODMockUseCase.swift in Sources */,
+				531B892129D14BC000A70AB9 /* APODViewModelTests.swift in Sources */,
 				531B891829D14B0500A70AB9 /* AstroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
