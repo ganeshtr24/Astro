@@ -65,10 +65,10 @@ class DefaultAPODViewModel: APODViewModel {
     }
     
     func fetchAPOD() {
-        fetchAPOD()
+        fetchAPODWithRequest( )
     }
     
-    func fetchAPOD(with request: APODRequest = APODRequest(thumb: true, date: Date().getDate())) {
+    func fetchAPODWithRequest(_ request: APODRequest = APODRequest(thumb: true, date: Date().getDate())) {
         useCase.execute(requestValue: request){ apod, error in
             self.aPod.value = apod
             self.fetchImage()
