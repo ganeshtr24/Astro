@@ -51,7 +51,7 @@ final class APODViewModelTests: XCTestCase {
         let apodRepository = DefaultAPODRepository(dataTransferService: defaultTransferService, cache: UserDefaultResponseStorage())
         useCase = DefaultAPODUseCase(apodRepository: apodRepository)
         viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
-        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "26.03.2023"))
+        viewModel.fetchAPODWithRequest(APODRequest(thumb: true, date: "26.03.2023"))
         
         viewModel.aPod.observe(on: self) { apod in
             if let apod {
@@ -60,7 +60,7 @@ final class APODViewModelTests: XCTestCase {
         }
         mockNetworkService.data = nil
         mockNetworkService.error = .notConnected
-        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "27.03.2023"))
+        viewModel.fetchAPODWithRequest(APODRequest(thumb: true, date: "27.03.2023"))
     }
     
     func test_whenUserOpensApp_onActiveInternetConnection_ShouldAlwaysProvideFreshAPOD () {
@@ -70,7 +70,7 @@ final class APODViewModelTests: XCTestCase {
         let apodRepository = DefaultAPODRepository(dataTransferService: defaultTransferService, cache: UserDefaultResponseStorage())
         useCase = DefaultAPODUseCase(apodRepository: apodRepository)
         viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
-        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "26.03.2023"))
+        viewModel.fetchAPODWithRequest(APODRequest(thumb: true, date: "26.03.2023"))
         viewModel = nil
         viewModel = DefaultAPODViewModel(useCase: useCase, imageRepository: nil)
         viewModel.aPod.observe(on: self) { apod in
@@ -79,7 +79,7 @@ final class APODViewModelTests: XCTestCase {
             }
         }
         mockNetworkService.data = Self.apod.toData()
-        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "27.03.2023"))
+        viewModel.fetchAPODWithRequest(APODRequest(thumb: true, date: "27.03.2023"))
     }
     
     func test_whenUserOpensApp_onInActiveInternetConnection_ShouldAlwaysProvideError () {
@@ -97,7 +97,7 @@ final class APODViewModelTests: XCTestCase {
         viewModel.error.observe(on: self) { _ in
             expectation.fulfill()
         }
-        viewModel.fetchAPOD(with: APODRequest(thumb: true, date: "27.03.2023"))
+        viewModel.fetchAPODWithRequest(APODRequest(thumb: true, date: "27.03.2023"))
         waitForExpectations(timeout:2, handler: nil)
         XCTAssertEqual(viewModel.error.value, "We are not connected to the internet, showing you the last image we have.")
     }
