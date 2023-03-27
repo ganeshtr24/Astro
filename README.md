@@ -1,7 +1,10 @@
 # Astro
- - Helps to see the picture of the day posted by NASA 
+ - Helps to see the picture of the day(POD) posted by NASA. Each day fetches the new POD and displays the content with title and short description.
 
 Improvement Areas
+
+Storage
+- Need to store data with CoreData or Realm DB
 
 EndPoint
 - Additional support to append headers and body 
